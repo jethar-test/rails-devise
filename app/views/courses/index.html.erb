@@ -5,7 +5,8 @@
 	        <tr>
 	            <th>Program</th>
 	            <th>Name</th>
-	            <th>Duration</th>           
+	            <th>Duration</th>  
+	            <th></th>         
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -13,7 +14,8 @@
 		    	<tr>
 		            <td><%= course.code %></td>
 		            <td><%= course.name %></td>
-		            <td><%= course.duration %> semesters</td>		            
+		            <td><%= course.duration %> semesters</td>
+		            <td><%= link_to "Enroll", new_user_registration_path + "?student=true", class: "btn btn-primary"  %></td>        
 		        </tr>
 	    	<% end %>	       
 	    </tbody>
