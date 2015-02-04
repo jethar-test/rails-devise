@@ -1,12 +1,17 @@
-class SyllabusesController < ApplicationController
+class SyllabusesController < ApplicationController	
 
-	before_action :get_course
-
-	def show
+	def index
+		@course = Course.find(params[:course_id])
 		@syllabuses = @course.syllabuses
 	end
 
-	def get_course
+	def show
 		@course = Course.find(params[:course_id])
+		@syllabuses = @course.syllabuses
 	end
+
+	def edit
+		@syllabus = Syllabus.find(params[:id])
+	end
+
 end
