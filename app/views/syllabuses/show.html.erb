@@ -1,27 +1,21 @@
 <div class="container">
-	<h1><%= "#{@course.code} " "#{@course.name}"%></h1>
-	<table class="table table-hover">
-	    <thead>
-	        <tr>
-	            <th>Code</th>
-	            <th>Semester</th>
-	            <th>Name</th>  
-	            <th></th>         
-	        </tr>
-	    </thead>
-	    <tbody>
-	    	<% @syllabuses.each do |syllabus| %>
-		    	<tr>
-		            <td><%= syllabus.code %></td>
-		            <td><%= syllabus.semester %></td>
-		            <td><%= syllabus.name %></td>
-		            <% if current_user.type == "Student" %>
-		            	<td><%= link_to "View Chapters", "http://google.com" , class: "btn btn-primary"  %></td>   
-		            <% else %> 
-		            	<td><%= link_to "Edit", edit_course_syllabus_path(syllabus), class: "btn btn-primary"  %></td> 
-		            <% end %>    
-		        </tr>
-	    	<% end %>	       
-	    </tbody>
-	</table>
+
+	<h1> Syllabus Details </h1>
+	<p>
+	  <strong>Code:</strong>
+	  <%= @syllabus.code %>
+	</p>
+
+	<p>
+	  <strong>Semester:</strong>
+	  <%= @syllabus.semester %>
+	</p>
+
+	<p>
+	  <strong>Name:</strong>
+	  <%= @syllabus.name %>
+	</p>
+	 
+	
+
 </div>

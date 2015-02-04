@@ -1,1 +1,18 @@
-syllabus edit 
+<div class="authform">
+  <%= form_for(@syllabus, url: {action: "update"},  :html => { :role => 'form'}) do |f| %>
+    <h3>Edit Syllabus</h3>
+    <div class="form-group">
+      <%= f.label :code %>
+      <%= f.text_field :code, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :semester %>
+      <%= f.text_field :semester, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>    
+    <%= f.submit 'Update', :class => 'button right' %>
+  <% end %>
+</div>
