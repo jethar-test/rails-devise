@@ -15,7 +15,9 @@
 		            <td><%= course.code %></td>
 		            <td><%= course.name %></td>
 		            <td><%= course.duration %> semesters</td>
-		            <td><%= link_to "Signup to Enroll", new_user_registration_path + "?type=Student", class: "btn btn-primary"  %></td>        
+		            <% if student_signed_in %>
+		            	<td><%= link_to "Enroll", new_user_registration_path + "?type=Student", class: "btn btn-primary"  %></td>    
+		            <% end %>    
 		        </tr>
 	    	<% end %>	       
 	    </tbody>
