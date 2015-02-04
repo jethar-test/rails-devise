@@ -14,7 +14,13 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
-    <%= f.hidden_field :type, value: session[:type] %>
+    <div class="form-group">
+      <%= f.radio_button :type, 'Student', checked: true %>
+      <%= f.label :type, 'Student'%>
+      <%= f.radio_button :type, 'Professor' %>
+      <%= f.label :type, 'Professor'%>
+    </div>
+    
     <%= f.submit 'Sign up', :class => 'button right' %>
   <% end %>
 </div>
