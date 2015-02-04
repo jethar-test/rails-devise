@@ -15,8 +15,10 @@
 		            <td><%= course.code %></td>
 		            <td><%= course.name %></td>
 		            <td><%= course.duration %> semesters</td>
-		            <% if student_signed_in %>
-		            	<td><%= link_to "Enroll", new_user_registration_path + "?type=Student", class: "btn btn-primary"  %></td>    
+		            <% if current_user.type == "Student" %>
+		            	<td><%= link_to "Enrol", 'https://www.google.com', class: "btn btn-primary"  %></td>   
+		            <% else %> 
+		            	<td><%= link_to "Edit", 'https://www.facebook.com', class: "btn btn-primary"  %></td> 
 		            <% end %>    
 		        </tr>
 	    	<% end %>	       
