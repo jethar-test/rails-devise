@@ -14,7 +14,7 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
-    <%= f.hidden_field :is_student, value: session[:is_student] %>
+    <%= f.hidden_field :type, value: session[:type] %>
     <%= f.submit 'Sign up', :class => 'button right' %>
   <% end %>
 </div>

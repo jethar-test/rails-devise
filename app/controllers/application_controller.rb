@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def persist_login_param
-    session[:is_student] = params[:student]
+    session[:type] = params[:type]
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :is_student
+    devise_parameter_sanitizer.for(:sign_up) << :type
   end
 
   def after_sign_in_path_for(resource)
