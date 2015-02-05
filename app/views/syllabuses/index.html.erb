@@ -6,6 +6,7 @@
 	            <th>Code</th>
 	            <th>Semester</th>
 	            <th>Name</th>  
+	            <th></th>
 	            <th></th>         
 	        </tr>
 	    </thead>
@@ -19,6 +20,7 @@
 		            	<td><%= link_to "View Chapters", '#' , class: "btn btn-primary"  %></td>   
 		            <% else %> 
 		            	<td><%= link_to "Edit", edit_course_syllabus_path(@course,syllabus), class: "btn btn-primary"  %></td> 
+		            	<td><%= link_to "Delete", course_syllabus_path(@course,syllabus), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td> 
 		            <% end %>    
 		        </tr>
 	    	<% end %>	       

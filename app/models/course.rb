@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
-	has_many :enrollments
+	has_many :enrollments, dependent: :destroy
     has_many :students, through: :enrollments, class_name: "User"
-    has_many :syllabuses
+    has_many :syllabuses,  dependent: :destroy
 
 end

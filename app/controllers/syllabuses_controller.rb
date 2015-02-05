@@ -35,6 +35,14 @@ class SyllabusesController < ApplicationController
 		end
 	end
 
+	def destroy
+		syllabus = Syllabus.find(params[:id])
+		if syllabus.destroy
+			flash[:notice] = "Successfully deleted #{syllabus.name}"
+			redirect_to :back
+		end
+	end
+
 	private
 
 	def syllabus_params
