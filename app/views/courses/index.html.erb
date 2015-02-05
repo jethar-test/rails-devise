@@ -15,18 +15,42 @@
 		            <td><%= course.code %></td>
 		            <td><%= course.name %></td>
 		            <td><%= course.duration %> semesters</td>
+
 		            <% if current_user %>
-			            <% if current_user.type == "Student" %>
-			            	<td><%= link_to "Enrol", course_syllabuses_path(course), class: "btn btn-primary"  %></td>   
-			            <% else %> 
-			            	<td><%= link_to "View", course_syllabuses_path(course), class: "btn btn-primary"  %></td> 
+
+			            <% if current_user.type == "Student"  %>
+
+			            	<% if current_user.enrollments.empty? %>
+			            	
+			            		<td><%= link_to "Enrol", course_syllabuses_path(course), class: "btn btn-primary"  %></td> 
+
+			            	<% elsif current_user.course.first == course %>
+
+			            		<td><%= link_to "View Syllabus", course_syllabuses_path(course), class: "btn btn-primary"  %></td>
+
+			            	<% else %>
+
+			            		<td></td>
+
+			            	<% end %> 
+
+
+			            <% else %>
+
+			            	<td><%= link_to "View", course_syllabuses_path(course), class: "btn btn-primary"  %></td>
+
 			            <% end %> 
+
 			        <% else %>
+
 			            <td></td>
+
 			         <% end %>     
 		        </tr>
 	    	<% end %>	       
 	    </tbody>
 	</table>
-	<em>Students, please <a href="<%= new_user_registration_path %>">signup </a>to enroll.</em>
+	<% unless current_user %>
+		<em>Students, please <a href="<%= new_user_registration_path %>">signup </a>to enroll.</em>
+	<% end %>
 </div>
