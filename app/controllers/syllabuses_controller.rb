@@ -23,6 +23,9 @@ class SyllabusesController < ApplicationController
 		@syllabus = Syllabus.find(params[:id])
 	end
 
+	def new
+		@syllabus = Syllabus.new
+	end
 	def edit
 		@syllabus = Syllabus.find(params[:id])
 	end
@@ -33,6 +36,18 @@ class SyllabusesController < ApplicationController
 			redirect_to course_syllabus_path(@syllabus.course,@syllabus)
 		else
 			render 'edit'
+		end
+	end
+
+	def create
+		@syllabus  = Syllabus.new(syllabus_params)
+		@syllabus.course = Course.find(params[:course_id])
+		if @syllabus.save
+			flash[:notice]  = "Successfully create #{@syllabus.name}"
+			redirect_to course_syllabus_path(@syllabus.course,@syllabus)
+		else
+			
+			render :new
 		end
 	end
 

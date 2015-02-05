@@ -17,8 +17,9 @@
 		            <td><%= syllabus.semester %></td>
 		            <td><%= syllabus.name %></td>
 		            <% if current_user.type == "Student" %>
-		            	<td><%= link_to "View Chapters", '#' , class: "btn btn-primary"  %></td>   
+		            	<td></td>   
 		            <% else %> 
+
 		            	<td><%= link_to "Edit", edit_course_syllabus_path(@course,syllabus), class: "btn btn-primary"  %></td> 
 		            	<td><%= link_to "Delete", course_syllabus_path(@course,syllabus), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td> 
 		            <% end %>    
@@ -26,4 +27,9 @@
 	    	<% end %>	       
 	    </tbody>
 	</table>
+		<%= link_to "Back", courses_path, class: "btn btn-default"  %>
+
+	 <% if current_user.type == "Professor" %>
+		<%= link_to "Create New Syllabus", new_course_syllabus_path(@course), class: "btn btn-primary"  %>
+	<% end %>
 </div>

@@ -1,0 +1,34 @@
+
+<div class="container">
+  <% if @syllabus.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@syllabus.errors.count, "error") %> prohibited
+        this syllabus from being saved:
+      </h2>
+      <ul>
+        <% @syllabus.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form">  
+    <%= form_for(@syllabus, url: {action: "create"},  :html => { :role => 'form'}) do |f| %>
+      <h3>Create Syllabus</h3>
+      <div class="form-group">
+        <%= f.label :code %>
+        <%= f.text_field :code, :autofocus => true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :semester %>
+        <%= f.text_field :semester, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>    
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
