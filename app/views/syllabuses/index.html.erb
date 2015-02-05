@@ -15,7 +15,7 @@
 		    	<tr>
 		            <td><%= syllabus.code %></td>
 		            <td><%= syllabus.semester %></td>
-		            <td><%= syllabus.name %></td>
+		            <td><%= link_to syllabus.name, syllabus_chapters_path(syllabus)  %></td> 
 		            <% if current_user.type == "Student" %>
 		            	<td></td>   
 		            <% else %> 

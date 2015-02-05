@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   	resources :syllabuses
   end
 
+  resources :syllabuses do
+  	resources :chapters
+  end
+
   
 end

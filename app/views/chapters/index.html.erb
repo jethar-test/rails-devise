@@ -1,0 +1,30 @@
+<div class="container">
+	<h1>Chapters List</h1>
+	<table class="table table-hover">
+	    <thead>
+	        <tr>
+	            <th>Number</th>
+	            <th>Title</th>	           
+	                 
+	        </tr>
+	    </thead>
+	    <tbody>
+	    	<% @chapters.each do |chapter| %>
+		    	<tr>
+		            <td><%= chapter.number %></td>
+		            <td><%= chapter.title %></td>
+		        </tr>
+		    <% end %>
+		</tbody>
+	</table>
+	<% if @chapters.empty? %>
+		<p>No Chapters are available to view.</p>
+	<% end %>
+	
+	
+	<td><%= link_to "Back", course_syllabuses_path(@syllabus.course), class: "btn btn-default"  %></td> 
+
+	<% if current_user.type == "Professor" %>
+		<%= link_to "Create New Chapter", new_syllabus_chapter_path(@syllabus), class: "btn btn-primary"  %>
+	<% end %>
+</div>
