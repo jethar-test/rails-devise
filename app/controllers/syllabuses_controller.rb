@@ -1,6 +1,19 @@
 class SyllabusesController < ApplicationController	
 
 	def index
+		user = current_user
+		@course = Course.find(params[:course_id])
+
+		if user.class == Student && user.enrollments.empty?
+			enrolment = Enrollment.new
+			enrolment.student = current_user
+			enrolment.course = @course
+
+			if enrolment.save
+				flash[:notice] = "You have been successfully enrolled"
+				redirect_to :back
+			end
+		end
 		@course = Course.find(params[:course_id])
 		@syllabuses = @course.syllabuses
 	end
