@@ -19,6 +19,7 @@ class SyllabusesController < ApplicationController
 	end
 
 	def show
+		@course = Course.find(params[:course_id])
 		@syllabus = Syllabus.find(params[:id])
 	end
 
