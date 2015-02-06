@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :chapter do
-    title "MyString"
-number 1
-syllabus nil
+    title Faker::Name.title
+	number Faker::Number.digit
+	association :syllabus
   end
-
 end
